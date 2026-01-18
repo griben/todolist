@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/script.js" type="module"></script>
+</head>
+<body>
+
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Yours name</h2>
+            <p>input name, to get started work:</p>
+            <input type="text" id="username-input" placeholder="Name">
+            <button id="login-btn" class="btn-primary">Login</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Task Manager</h1>
+            <div id="user-info" class="hidden">
+                Hi, <span id="current-user-name"></span>!
+                <button id="logout-btn" class="btn-sm">Change name</button>
+            </div>
+        </header>
+
+        <section class="task-form-section">
+            <form id="add-task-form">
+                <input type="text" id="task-title" placeholder="Name task" required>
+                <textarea id="task-desc" placeholder="Brief description" required></textarea>
+                <button type="submit" class="btn-primary">Add to list</button>
+            </form>
+        </section>
+
+        <section class="controls">
+            <div class="control-group">
+                <label>Filter:</label>
+                <select id="filter-status">
+                    <option value="all">All tasks</option>
+                    <option value="completed">Completed</option>
+                    <option value="uncompleted">Unfulfilled</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label> Sorting:</label>
+                <select id="sort-by">
+                    <option value="date">By creation date</option>
+                    <option value="title">By name</option>
+                    <option value="user">By artist</option>
+                </select>
+            </div>
+        </section>
+
+        <div id="tasks-list" class="tasks-grid">
+        </div>
+    </div>
+
+    <div id="edit-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Editing</h3>
+            <input type="hidden" id="edit-task-id">
+            <label>Name:</label>
+            <input type="text" id="edit-title">
+            <label>Description:</label>
+            <textarea id="edit-desc"></textarea>
+            <div class="checkbox-line">
+                <input type="checkbox" id="edit-status">
+                <label for="edit-status">Task completed</label>
+            </div>
+            <label>Executor:</label>
+            <input type="text" id="edit-user">
+            
+            <div class="modal-buttons">
+                <button id="save-edit-btn" class="btn-primary">Save</button>
+                <button id="close-edit-btn" class="btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
